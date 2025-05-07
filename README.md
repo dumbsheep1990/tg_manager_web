@@ -1,5 +1,23 @@
 # TG营销系统 - 前端项目
 
+## 2025-05-07 开发更新
+
+### TData账号管理实现
+
+- 实现 `/src/view/tg/tdata/import/index.vue` 导入页面，支持文件上传、账号分组选择、账号等级设置
+- 实现 `/src/view/tg/tdata/list/index.vue` 账号列表页面，支持账号搜索、详情查看、编辑和删除
+- 改造 `/src/view/tg/tdata/index.vue` 为路由容器，完成导舐菜单实现
+
+### API和路由更新
+
+- 在 `/src/api/tg/tdata.js` 中实现完整的TData账号API接口
+- 在 `/src/router/tg.js` 中更新路由配置，增加TData账号导入和列表子路由
+
+### 其他功能
+
+- 实现日期格式化功能，优化时间展示
+- 使用Element Plus组件实现响应式页面布局
+
 ## 项目简介
 
 TG营销系统前端项目是基于Vue.js开发的Telegram营销管理平台客户端，提供用户友好的界面用于管理电报账号、任务调度、消息发送等功能。项目基于gin-vue-admin模板二次开发，采用现代化的前端技术栈，包括Vue 3、Pinia、Element Plus等，为用户提供流畅的交互体验和强大的营销管理功能。
