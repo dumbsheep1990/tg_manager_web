@@ -51,7 +51,27 @@ const tgRouter = {
         title: 'TData管理',
         icon: 'file'
       },
-      component: () => import('@/view/tg/tdata/index.vue')
+      component: () => import('@/view/tg/tdata/index.vue'),
+      children: [
+        {
+          path: 'import',
+          name: 'tgTdataImport',
+          meta: {
+            title: '导入账号',
+            icon: 'upload'
+          },
+          component: () => import('@/view/tg/tdata/import/index.vue')
+        },
+        {
+          path: 'list',
+          name: 'tgTdataList',
+          meta: {
+            title: '账号列表',
+            icon: 'list'
+          },
+          component: () => import('@/view/tg/tdata/list/index.vue')
+        }
+      ]
     }
   ]
 }

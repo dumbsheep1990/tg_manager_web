@@ -1,56 +1,53 @@
 import service from '@/utils/request'
 
-// 上传TData文件
-export const uploadTdataFile = (data) => {
+// 导入tdata账号
+export const importTdataAccount = (data) => {
   return service({
-    url: '/tdata/upload',
+    url: '/api/v1/tdata-accounts/import',
     method: 'post',
     data,
     headers: { 'Content-Type': 'multipart/form-data' }
   })
 }
 
-// 获取TData文件列表
-export const getTdataFiles = (data) => {
+// 获取tdata账号列表
+export const getTdataAccounts = (params) => {
   return service({
-    url: '/tdata/list',
-    method: 'post',
-    data
-  })
-}
-
-// 删除TData文件
-export const deleteTdataFile = (data) => {
-  return service({
-    url: '/tdata/delete',
-    method: 'delete',
-    data
-  })
-}
-
-// 导入TData文件到系统
-export const importTdataFile = (data) => {
-  return service({
-    url: '/tdata/import',
-    method: 'post',
-    data
-  })
-}
-
-// 检查TData文件状态
-export const checkTdataStatus = (data) => {
-  return service({
-    url: '/tdata/status',
+    url: '/api/v1/tdata-accounts',
     method: 'get',
-    params: data
+    params
   })
 }
 
-// 获取TData导入历史
-export const getTdataImportHistory = (data) => {
+// 获取tdata账号详情
+export const getTdataAccountDetail = (id) => {
   return service({
-    url: '/tdata/importHistory',
-    method: 'post',
+    url: `/api/v1/tdata-accounts/${id}`,
+    method: 'get'
+  })
+}
+
+// 更新tdata账号
+export const updateTdataAccount = (id, data) => {
+  return service({
+    url: `/api/v1/tdata-accounts/${id}`,
+    method: 'put',
     data
+  })
+}
+
+// 删除tdata账号
+export const deleteTdataAccount = (id) => {
+  return service({
+    url: `/api/v1/tdata-accounts/${id}`,
+    method: 'delete'
+  })
+}
+
+// 检测tdata账号状态
+export const checkTdataAccountStatus = (id) => {
+  return service({
+    url: `/api/v1/tdata-accounts/${id}/check`,
+    method: 'post'
   })
 }
