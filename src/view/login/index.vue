@@ -146,7 +146,10 @@
     }
   }
   const checkPassword = (rule, value, callback) => {
-    if (value.length < 6) {
+    // 开发模式下放宽密码验证
+    if (process.env.NODE_ENV === 'development') {
+      callback() // 开发模式下的验证总是通过
+    } else if (value.length < 6) {
       return callback(new Error('请输入正确的密码'))
     } else {
       callback()
@@ -173,15 +176,17 @@
   const picPath = ref('')
   const loginFormData = reactive({
     username: 'admin',
-    password: '',
-    captcha: '',
+    password: 'admin',  // 设置默认密码
+    captcha: '1234',    // 默认验证码
     captchaId: '',
     openCaptcha: false
   })
+  
+  // 开发环境使用更宽松的验证规则
   const rules = reactive({
-    username: [{ validator: checkUsername, trigger: 'blur' }],
-    password: [{ validator: checkPassword, trigger: 'blur' }],
-    captcha: [
+    username: process.env.NODE_ENV === 'development' ? [] : [{ validator: checkUsername, trigger: 'blur' }],
+    password: process.env.NODE_ENV === 'development' ? [] : [{ validator: checkPassword, trigger: 'blur' }],
+    captcha: process.env.NODE_ENV === 'development' ? [] : [
       {
         message: '验证码格式不正确',
         trigger: 'blur'

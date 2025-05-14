@@ -12,7 +12,18 @@ import '@/permission'
 import run from '@/core/gin-vue-admin.js'
 import auth from '@/directive/auth'
 import { store } from '@/pinia'
+
+// 引入模拟数据服务 (开发环境使用)
+if (import.meta.env.DEV) {
+  import('./mock')
+  console.log('Mock数据服务已启动')
+}
+// 引入系统初始化工具
+import { autoInit } from '@/utils/init'
 import App from './App.vue'
+
+// 开发环境自动初始化系统
+autoInit()
 
 const app = createApp(App)
 app.config.productionTip = false

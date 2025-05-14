@@ -46,6 +46,15 @@ export const tgMenus = [
         }
       },
       {
+        path: 'telegram',
+        name: 'TgTelegram',
+        component: 'view/tg/telegram/index.vue',
+        meta: {
+          title: '飞机号管理',
+          icon: 'iphone'
+        }
+      },
+      {
         path: 'tdata',
         name: 'TgTdata',
         component: 'view/tg/tdata/index.vue',

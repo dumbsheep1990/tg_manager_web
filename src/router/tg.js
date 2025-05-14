@@ -27,6 +27,15 @@ const tgRouter = {
       component: () => import('@/view/tg/account/index.vue')
     },
     {
+      path: 'telegram',
+      name: 'tgTelegram',
+      meta: {
+        title: '飞机号管理',
+        icon: 'phone'
+      },
+      component: () => import('@/view/tg/telegram/index.vue')
+    },
+    {
       path: 'task',
       name: 'tgTask',
       meta: {
